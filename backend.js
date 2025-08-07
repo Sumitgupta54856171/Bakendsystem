@@ -1,6 +1,5 @@
 const express = require("express");
 const app = express();
-const jwt = require("jsonwebtoken");
 const dotenv = require("dotenv");
 const { register, login } = require("./controller/sign");
 dotenv.config();
