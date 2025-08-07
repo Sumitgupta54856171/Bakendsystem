@@ -1,0 +1,54 @@
+const mongoose =require('mongoose');
+const claimSchema = new mongoose.Schema({
+    screenshort:{
+        name:{
+            type:String,
+        },
+        path:{
+            type:String,
+        }
+    },
+    postid:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'post',
+        required:true
+    },
+    status:{
+        type:String,
+        enum:['pending','approved','rejected'],
+        default:'pending'
+    },
+    createdAt:{
+        type:Date,
+        default:Date.now
+    },
+    updatedAt:{
+        type:Date,
+        default:Date.now
+    },
+    check:{
+        type:Boolean,
+        default:false   
+    },
+    like:{
+        type:Number,
+        default:0
+    },
+    views:{
+        type:Number,
+        default:0
+    },
+    adminpass:{
+        type:Boolean,
+        default:false
+    },
+    adminclaim:{
+        type:Boolean,
+        default:false
+    },
+    earnings:{
+        type:Number,
+        default:0
+    }
+})
+module.exports = mongoose.model("claim",claimSchema)
